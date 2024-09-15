@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lettf</title>
+    <script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" type="text/css">
+</head>
+
+<body>
+    <main class="main-container">
+        <div class="content-container">
+            <div class="white-container">
+                <div class="nav-container">
+                    <div>
+                        <img class="logo-nav" src="{% static 'img/logo_nav.png' %}" alt="">
+                    </div>
+
+                    <div class="about-container">
+                        <a href="">ABOUT</a>
+                    </div>
+                </div>
+
+                <div class="white-content-container">
+                    <div>
+                        <div class="slogan-container margin-decrease">
+                            <p>기억 속&nbsp;</p>
+                            <p class="slogan-mongdol">편지</p>
+                            <p>에서</p>
+                        </div>
+
+                        <div class="slogan-container">
+                            <p>추억이 담긴&nbsp;</p>
+                            <p class="slogan-yuniverse">폰트</p>
+                            <p>로</p>
+                        </div>
+
+                        <div>
+                            <p class="slogan-leferi">편지 2장으로 폰트를 만들고 원하는 문구를 써 보세요!</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <img class="icon_letter" src="{% static 'img/icon_letter.png' %}" alt="">
+                    </div>
+
+                    <div>
+                        <input class="go-button" type="button" value="지금 바로 만들기">
+                    </div>
+                </div>
+            </div>
+
+            <div class="yellow-container">
+                <div class="yellow-content-container">
+                    <div class="introduction-title-container">
+                        <div class="introduction-title">
+                            <p class="upper-bar">-</p>
+                            <p class="title">디지털 폰트로 되살아난 아날로그 편지</p>
+                            <p class="lower-bar">-</p>
+                        </div>
+                    </div>
+
+                    <div class="introduction-content-container">
+                        <div class="introduction-content">
+                            <p>사람의 글씨는 지문처럼 각자의 기억을 담고 있습니다. 프로젝트 Lettf는</p>
+                            <p>아날로그 손글씨에 담긴 기억을 추출해 디지털 폰트로 재현합니다. 편지</p>
+                            <p>사진 3장과 함께 지금 바로 간편하게 폰트를 만들어보세요.</p>
+                        </div>
+
+                        <div>
+                            <img class="logo-blur" src="{% static 'img/logo_blur.png' %}" alt="">
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="yellow-content-container">
+                    <div class="step1-container" id="step-1">
+                        <div class="step1-input-container">
+                            <div>
+                                <div class="step1-title">
+                                    <p>Step1. File Upload</p>
+                                </div>
+        
+                                <div class="step1-upload-container">
+                                    <div id="preview"></div>
+                                    
+                                    <div class="description-container">
+                                        <img class="mail-icon step1" src="{% static 'img/mail_icon.png' %}" alt="">
+
+                                        <p class="upload-description1 step1">편지를 스캔한 파일을 업로드 해주세요</p>
+                                        <p class="upload-description2 step1">[이미지 업로드는 최대 2장까지 가능합니다]</p>
+                                        
+                                        <div class="file-upload-btn-container">
+                                            <input type="file" id="imgs-upload" onchange="previewFiles()" accept='image/jpeg,image/png'
+                                            style="display:none;" multiple>
+                                        <label class="file-upload-btn" for="imgs-upload" name='imgs' id="upload-text">파일 업로드</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="sentence-container">
+                                <div class="sentence-title">
+                                    <p>한 문장을 적어 이미지로 만들어드려요</p>
+                                </div>
+    
+                                <textarea class="sentence-box" id="user-txt"
+                                    placeholder="이미지로 보고 싶은 문장을 입력해주세요&#13;&#10;(없다면 기본문장이 출력됩니다)"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="upload-btn-container">
+                            <input class="upload-btn" type="button" id="submit-btn" value="업로드 완료">
+                        </div>
+                    </div>
+                    
+                    <div id="step-2" style="display: none;">
+                        <div id="myBar"></div>
+                        <!-- <div id="myBar-txt">0%</div> -->
+                    </div>
+
+                    <div id="step-3" style="display: none;">
+                        <div>
+                            <p class="step3-title1">Step3. Test & Download</p>
+                            <p class="step3-title2">폰트 미리보기</p>
+                        </div>
+                        
+                        <!-- <img src="#" id="rlt-img"> -->
+                        <textarea class="step3-input" id="output-txt"
+                                    placeholder="아무거나 적어보세요"></textarea>
+                        <a href="javascript:;" style="display: none;" id="download-img">파일 다운로드</a>
+                        <a href="javascript:;" style="display: none;" id="download-font">파일 다운로드</a>
+
+                        <div class="btn-container">
+                            <input class="download-btn" type="button" id="font-download" value="폰트 다운로드">
+                            <input class="return-btn" type="button" value="다른 폰트 만들기">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer-container">
+            <div class="footer-content-container">
+                <div>
+                    <p class="footer-title">Korea Aerospace University Hackathon</p>
+                    <p class="footer-body">The Lettf project is designed by student of KAU</p>
+                    <p class="footer-body">All copyrights belongs to Team “Meet me on Friday”</p>
+                    <img class="logo-footer" src="{% static 'img/logo_footer.png' %}" alt="">
+                </div>
+
+                <div class="footer-right">
+                    <p class="footer-title">Team</p>
+                    <p class="footer-body">Minsung Cho&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jooan Kim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hyein Lee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minhee Park</p>
+                    <p class="footer-body-small">Machine Learning&nbsp;&nbsp;&nbsp;&nbsp;Designer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Front End&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back End&nbsp;&nbsp;&nbsp;</p>
+                    <div class="sns-icons">
+                        <img class="instagram-icon" src="{% static 'img/instagram_footer.png' %}" alt="">
+                        <img class="twitter-icon" src="{% static 'img/twitter_footer.png' %}" alt="">
+                        <img class="facebook-icon" src="{% static 'img/facebook_footer.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+
+</html>
